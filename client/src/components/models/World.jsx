@@ -6,7 +6,7 @@ Command: npx gltfjsx@6.1.4 ./public/models/pirate-raft-world.glb
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 
-export function Model(props) {
+export function World(props) {
   const { nodes, materials } = useGLTF('/pirate-raft-world.glb');
   return (
     <group {...props} dispose={null}>
