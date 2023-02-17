@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^7.0.0",
     "@react-three/drei": "^9.56.24",
     "@react-three/fiber": "^8.11.0",
     "@testing-library/jest-dom": "^5.16.5",
@@ -12,6 +13,8 @@
     "@types/node": "^18.13.0",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.10",
+    "i": "^0.3.7",
+    "npm": "^9.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^3.1.4",
@@ -24,9 +27,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "start:cli": "cross-env BROWSER=none craco start",
+    "build": "craco build",
+    "test": "is-ci \"test:coverage\" \"test:jest\"",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
