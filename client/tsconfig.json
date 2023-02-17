@@ -22,7 +22,7 @@
   },
   "include": [
     "src"
-  ],
+, "jsconfig.json"  ],
   "exclude": [
     "node_modules"
   ],
