@@ -7,7 +7,7 @@ import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 
 export function World(props) {
-  const { nodes, materials } = useGLTF('/pirate-raft-world.glb');
+  const { nodes, materials } = useGLTF('./models/pirate-raft-world.glb');
   return (
     <group {...props} dispose={null}>
       <group position={[0, 0, 3.14]}>
@@ -236,4 +236,4 @@ export function World(props) {
   );
 }
 
-useGLTF.preload('/pirate-raft-world.glb');
+useGLTF.preload('./models/pirate-raft-world.glb');
