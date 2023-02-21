@@ -10,11 +10,11 @@ export const Landing = () => {
 
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
-      <Canvas shadows camera={{ position: [0, 0, 1.66] }}>
+      <Canvas shadows camera={{ position: [-25, 20, 25], fov: 25 }}>
         <Environment preset='forest' />
         <World />
         <ContactShadows position={[0, -0.8, 0]} color='#ffffff' />
-        <OrbitControls autoRotate />
+        <OrbitControls />
       </Canvas>
     </div>
   );
