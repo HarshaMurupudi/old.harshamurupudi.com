@@ -10,7 +10,7 @@ export const Landing = () => {
 
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
-      <Canvas shadows camera={{ position: [-80, 28, 90], fov: 15 }}>
+      <Canvas shadows camera={{ position: [-80, 28, 100], fov: 20 }}>
         <Environment preset='forest' />
         <World />
         <ContactShadows position={[0, -0.8, 0]} color='#ffffff' />
