@@ -46,16 +46,20 @@ export const Landing = () => {
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
       <Canvas
-        shadows
-        camera={{ position: [-70, 30, 100], fov: 10, near: 0.1, far: 1000 }}
+        // shadows
+        camera={{ position: [0, 0, 2], fov: 60, near: 1, far: 3 }}
+        // camera={{ position: [-70, 30, 100], fov: 60, near: 0.1, far: 1000 }}
       >
+        <ambientLight />
+        <pointLight position={[5, 5, 5]} intensity={3} />
+        <pointLight position={[-3, -3, 2]} />
         <Controls />
         <Box />
         <CameraHelper />
-        <Environment preset='forest' />
-        <World />
-        <ContactShadows position={[0, -0.8, 0]} color='#ffffff' />
-        <OrbitControls />
+        {/* <Environment preset='forest' /> */}
+        {/* <World /> */}
+        {/* <ContactShadows position={[0, -0.8, 0]} color='#ffffff' /> */}
+        {/* <OrbitControls /> */}
       </Canvas>
     </div>
   );
