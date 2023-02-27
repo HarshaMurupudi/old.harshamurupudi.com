@@ -6,40 +6,6 @@ import { DoubleSide, Mesh, PerspectiveCamera } from 'three';
 
 import { World } from '../../../components/models';
 
-function Box() {
-  const boxRef = useRef(null);
-
-  useFrame(() => {
-    boxRef.current.rotation.x += 0.005;
-    boxRef.current.rotation.y += 0.01;
-  });
-
-  return (
-    <mesh ref={boxRef}>
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color='orange' side={DoubleSide} />
-    </mesh>
-  );
-}
-
-function Controls() {
-  const {
-    camera,
-    gl: { domElement },
-  } = useThree();
-
-  return <OrbitControls args={[camera, domElement]} />;
-}
-
-function CameraHelper() {
-  const camera = new PerspectiveCamera(60, 1, 1, 3);
-  return (
-    <group position={[1, 1, 2]}>
-      <cameraHelper args={[camera]} />
-    </group>
-  );
-}
-
 export const Landing = () => {
   const navigate = useNavigate();
 
@@ -47,24 +13,22 @@ export const Landing = () => {
     <div style={{ width: '100vw', height: '100vh' }}>
       <Canvas
         shadows
-        // camera={{ position: [1, 1, 2], fov: 60, near: 1, far: 3 }}
         camera={{
-          position: [-120, 100, 100],
-          fov: 20,
+          position: [-170, 70, 180],
+          fov: 6,
           near: 0.1,
           far: 1000,
         }}
       >
-        {/* <ambientLight />
-        <pointLight position={[5, 5, 5]} intensity={3} />
-        <pointLight position={[-3, -3, 2]} />
-        <Controls />
-        <Box />
-        <CameraHelper /> */}
         <Environment preset='forest' />
         <World />
         <ContactShadows position={[0, -0.8, 0]} color='#ffffff' />
-        <OrbitControls />
+        <OrbitControls
+          minAzimuthAngle={-Math.PI / 4 + 0.1}
+          maxAzimuthAngle={Math.PI / 6 - 0.7}
+          minPolarAngle={Math.PI / 6}
+          maxPolarAngle={Math.PI / 2 - 0.27}
+        />
       </Canvas>
     </div>
   );
