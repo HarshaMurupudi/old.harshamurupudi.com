@@ -24,8 +24,9 @@ export const Landing = () => {
         <World />
         <ContactShadows position={[0, -0.8, 0]} color='#ffffff' />
         <OrbitControls
-          minAzimuthAngle={-Math.PI / 4 + 0.1}
-          maxAzimuthAngle={Math.PI / 6 - 0.7}
+          target={[0, 8, 0]}
+          // minAzimuthAngle={-Math.PI / 4 + 0.1}
+          // maxAzimuthAngle={Math.PI / 6 - 0.7}
           minPolarAngle={Math.PI / 6}
           maxPolarAngle={Math.PI / 2 - 0.27}
         />
