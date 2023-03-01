@@ -29,6 +29,8 @@ export const Landing = () => {
           // maxAzimuthAngle={Math.PI / 6 - 0.7}
           minPolarAngle={Math.PI / 6}
           maxPolarAngle={Math.PI / 2 - 0.27}
+          maxDistance={300}
+          minDistance={100}
         />
       </Canvas>
     </div>
