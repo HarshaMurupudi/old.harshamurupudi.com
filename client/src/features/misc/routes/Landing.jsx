@@ -4,7 +4,7 @@ import { OrbitControls, Environment, ContactShadows } from '@react-three/drei';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { DoubleSide, Mesh, PerspectiveCamera } from 'three';
 
-import { World } from '../../../components/models';
+import { World, WorldV2 } from '../../../components/models';
 
 export const Landing = () => {
   const navigate = useNavigate();
@@ -21,7 +21,8 @@ export const Landing = () => {
         }}
       >
         <Environment preset='forest' />
-        <World />
+        {/* <World /> */}
+        <WorldV2 />
         <ContactShadows position={[0, -0.8, 0]} color='#ffffff' />
         <OrbitControls
           target={[0, 8, 0]}
