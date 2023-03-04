@@ -8,6 +8,14 @@ import { useGLTF } from '@react-three/drei';
 
 export function World(props) {
   const { nodes, materials } = useGLTF('./models/pirate-raft-world.glb');
+
+  materials['Ocean'].color = {
+    r: 1 / 255,
+    g: 187 / 255,
+    b: 180 / 255,
+    isColor: true,
+  };
+
   return (
     <group {...props} dispose={null}>
       <group position={[0, 0, 3.14]}>
