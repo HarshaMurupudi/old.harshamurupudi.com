@@ -21,6 +21,7 @@ export const Landing = () => {
         }}
       >
         <Environment preset='forest' />
+        {/* <ambientLight intensity={0.5} /> */}
         <World />
         <ContactShadows position={[0, -0.8, 0]} color='#ffffff' />
         <OrbitControls

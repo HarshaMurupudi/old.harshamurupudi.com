@@ -5,14 +5,18 @@ Command: npx gltfjsx@6.1.4 pirate-raft-world-v4.glb
 
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
+import { TextureLoader } from 'three/src/loaders/TextureLoader';
+import { Canvas, useLoader } from '@react-three/fiber';
 
 export function World(props) {
   const { nodes, materials } = useGLTF('./models/pirate-raft-world.glb');
+  const colorMap = useLoader(TextureLoader, './textures/sand2.png');
+  const oceanTexture = useLoader(TextureLoader, './textures/Ocean.png');
 
   materials['Ocean'].color = {
-    r: 1 / 255,
-    g: 187 / 255,
-    b: 180 / 255,
+    r: 147 / 255,
+    g: 216 / 255,
+    b: 241 / 255,
     isColor: true,
   };
 
@@ -104,11 +108,13 @@ export function World(props) {
         rotation={[0, 0, Math.PI / 2]}
         scale={[2.48, 2.48, 3.21]}
       />
-      <mesh
+      {/* <mesh
         geometry={nodes.Ocean.geometry}
-        material={materials.Ocean}
+        // material={materials.Ocean}
         rotation={[0, -0.42, 0]}
-      />
+      >
+        <meshStandardMaterial map={oceanTexture} />
+      </mesh> */}
       <group
         position={[5.88, -0.23, 11.06]}
         rotation={[Math.PI / 2, -0.24, 0]}
@@ -169,12 +175,16 @@ export function World(props) {
         geometry={nodes.Ocean_2.geometry}
         material={materials.Ocean}
         position={[0, -0.59, 0]}
-      />
+      >
+        <meshStandardMaterial map={oceanTexture} />
+      </mesh>
       <mesh
         geometry={nodes.Island.geometry}
-        material={materials.Sand}
+        // material={colorMap}
         position={[0.74, 0, -1.24]}
-      />
+      >
+        <meshBasicMaterial map={colorMap} />
+      </mesh>
       <mesh
         geometry={nodes.Tree_Trunk.geometry}
         material={materials['Tree Trunk']}
