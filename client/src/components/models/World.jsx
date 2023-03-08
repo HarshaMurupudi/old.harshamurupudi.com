@@ -113,37 +113,41 @@ export function World(props) {
       <Shark
         position={[5.88, -0.4, 11.06]}
         rotation={[Math.PI / 2, -0.36, 0]}
-        scale={[1, 1, 0.83]}
+        scale={[2, 2, 1.83]}
         geometry={nodes.Plane005.geometry}
         material={materials['Shark Fin']}
         initial={0}
+        label={'Collection'}
       />
 
       <Shark
         position={[-11.39, -0.2, 2.2]}
         rotation={[1.34, 0.08, -2.14]}
-        scale={[1, 1, 0.83]}
+        scale={[2, 2, 1.83]}
         geometry={nodes.Plane004.geometry}
         material={materials['Shark Fin']}
         initial={0}
+        label={'Projects'}
       />
 
       <Shark
         position={[-6.97, -0.25, -7.23]}
         rotation={[1.91, -0.26, 0.03]}
-        scale={[1, 1, 0.83]}
+        scale={[2, 2, 1.83]}
         geometry={nodes.Plane002.geometry}
         material={materials['Shark Fin']}
         initial={0}
+        label={'Work'}
       />
 
       <Shark
         position={[10, -0.15, 2.82]}
         rotation={[Math.PI / 2, 0, -2.19]}
-        scale={[1, 1, 0.83]}
+        scale={[2, 2, 1.83]}
         geometry={nodes.Plane002.geometry}
         material={materials['Shark Fin']}
         initial={0}
+        label={'Comics'}
       />
 
       <mesh geometry={nodes.Ocean_2.geometry} position={[0, -0.59, 0]}>
