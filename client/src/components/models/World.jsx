@@ -8,6 +8,7 @@ import { useGLTF, Cloud } from '@react-three/drei';
 import { TextureLoader } from 'three/src/loaders/TextureLoader';
 import { Canvas, useLoader } from '@react-three/fiber';
 import Shark from './Shark';
+import Sail from './Sail';
 
 export function World(props) {
   const { nodes, materials } = useGLTF('./models/pirate-raft-world.glb');
@@ -102,14 +103,15 @@ export function World(props) {
         material={materials.Rope}
         position={[-4.92, 6.01, -0.02]}
       />
-      <mesh
+      <Sail
         geometry={nodes.Sail.geometry}
         material={materials.Sail}
         position={[-5.21, 6.2, -0.02]}
         rotation={[0, 0, Math.PI / 2]}
         scale={[2.48, 2.48, 3.21]}
+        initial={0}
+        label={'Bio'}
       />
-
       <Shark
         position={[5.88, -0.4, 11.06]}
         rotation={[Math.PI / 2, -0.36, 0]}
@@ -119,7 +121,6 @@ export function World(props) {
         initial={0}
         label={'Collection'}
       />
-
       <Shark
         position={[-11.39, -0.2, 2.2]}
         rotation={[1.34, 0.08, -2.14]}
@@ -129,7 +130,6 @@ export function World(props) {
         initial={0}
         label={'Projects'}
       />
-
       <Shark
         position={[-6.97, -0.25, -7.23]}
         rotation={[1.91, -0.26, 0.03]}
@@ -139,7 +139,6 @@ export function World(props) {
         initial={0}
         label={'Work'}
       />
-
       <Shark
         position={[10, -0.15, 2.82]}
         rotation={[Math.PI / 2, 0, -2.19]}
