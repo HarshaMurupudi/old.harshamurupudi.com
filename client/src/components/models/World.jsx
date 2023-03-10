@@ -22,6 +22,13 @@ export function World(props) {
     isColor: true,
   };
 
+  materials['Rock'].color = {
+    r: 95 / 255,
+    g: 97 / 255,
+    b: 99 / 255,
+    isColor: true,
+  };
+
   return (
     <group {...props} dispose={null}>
       <group position={[0, 0, 3.14]}>
