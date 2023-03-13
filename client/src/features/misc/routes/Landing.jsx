@@ -1,16 +1,55 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { OrbitControls, Environment, ContactShadows } from '@react-three/drei';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { DoubleSide, Mesh, PerspectiveCamera } from 'three';
+import { Drawer } from 'flowbite';
 
 import { World } from '../../../components/models';
 
 export const Landing = () => {
-  const navigate = useNavigate();
+  // set the drawer menu element
+  // let $targetEl = {};
+  // options with default values
+
+  let drawer = {};
+
+  useEffect(() => {
+    // $targetEl = document.getElementById('drawer-js-example');
+    const options = {
+      placement: 'right',
+      backdrop: true,
+      bodyScrolling: false,
+      edge: false,
+      edgeOffset: '',
+      backdropClasses:
+        'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-30',
+      onHide: () => {
+        console.log('drawer is hidden');
+      },
+      onShow: () => {
+        console.log('drawer is shown');
+      },
+      onToggle: () => {
+        console.log('drawer has been toggledd');
+      },
+    };
+    // const drawer = {};
+
+    // set the drawer menu element
+    const $targetEl = document.getElementById('drawer-js-example') || null;
+    drawer = new Drawer($targetEl, options);
+
+    drawer.hide();
+  }, []);
+
+  const onDrawerToggle = () => {
+    drawer.toggle();
+  };
 
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
+      {/* <button onClick={() => drawer.toggle()}>Click</button> */}
       <Canvas
         shadows
         camera={{
@@ -22,7 +61,7 @@ export const Landing = () => {
       >
         <Environment preset='forest' />
         {/* <ambientLight intensity={0.5} /> */}
-        <World />
+        <World onDrawerToggle={onDrawerToggle} />
         <ContactShadows position={[0, -0.8, 0]} color='#ffffff' />
         <OrbitControls
           target={[0, 8, 0]}

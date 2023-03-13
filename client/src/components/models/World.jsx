@@ -28,6 +28,7 @@ export function World(props) {
     b: 99 / 255,
     isColor: true,
   };
+  console.log(props.onDrawerToggle);
 
   return (
     <group {...props} dispose={null}>
@@ -118,6 +119,7 @@ export function World(props) {
         scale={[2.48, 2.48, 3.21]}
         initial={0}
         label={'Bio'}
+        onDrawerToggle={props.onDrawerToggle}
       />
       <Shark
         position={[5.88, -0.4, 11.06]}
