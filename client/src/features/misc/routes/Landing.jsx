@@ -40,7 +40,7 @@ export const Landing = () => {
     const $targetEl = document.getElementById('drawer-js-example') || null;
     drawer = new Drawer($targetEl, options);
 
-    drawer.hide();
+    // drawer.hide();
   }, []);
 
   const onDrawerToggle = () => {

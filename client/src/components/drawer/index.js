@@ -5,7 +5,7 @@ export default function SideDrawer() {
     <div>
       <div
         id='drawer-js-example'
-        className='fixed z-40 h-screen p-4 overflow-y-auto bg-white w-80 dark:bg-gray-800'
+        className='fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-100 dark:bg-gray-800'
         tabindex='-1'
         aria-labelledby='drawer-js-label'
       >

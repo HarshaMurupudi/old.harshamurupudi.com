@@ -9,6 +9,7 @@ export default function Shark({
   material,
   children,
   label,
+  onDrawerToggle,
   ...props
 }) {
   const ref = useRef();
@@ -32,12 +33,13 @@ export default function Shark({
       {...props}
       onPointerOver={(e) => set(true)}
       onPointerOut={() => set(false)}
+      onClick={() => onDrawerToggle()}
     >
       <group ref={ref}>
         {/* {children} */}
         <mesh geometry={geometry} material={material} />
         {hovered && (
-          <Html distanceFactor={10}>
+          <Html distanceFactor={10} zIndexRange={[2, 6]}>
             <div className='content'>{label}</div>
           </Html>
         )}
