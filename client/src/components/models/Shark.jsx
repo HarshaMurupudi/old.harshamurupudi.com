@@ -33,7 +33,7 @@ export default function Shark({
       {...props}
       onPointerOver={(e) => set(true)}
       onPointerOut={() => set(false)}
-      onClick={() => onDrawerToggle()}
+      onClick={() => onDrawerToggle(label)}
     >
       <group ref={ref}>
         {/* {children} */}

@@ -1,11 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default function SideDrawer() {
+const SideDrawer = ({ drawerTitle }) => {
   return (
     <div>
       <div
         id='drawer-js-example'
-        className='fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-100 dark:bg-gray-800'
+        className='fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-10/12 dark:bg-gray-800 delay-100'
         tabindex='-1'
         aria-labelledby='drawer-js-label'
       >
@@ -26,7 +27,7 @@ export default function SideDrawer() {
               clip-rule='evenodd'
             ></path>
           </svg>
-          Info
+          {drawerTitle}
         </h5>
         <button
           id='drawer-hide-button'
@@ -49,24 +50,7 @@ export default function SideDrawer() {
           </svg>
           <span className='sr-only'>Close menu</span>
         </button>
-        <p className='mb-6 text-sm text-gray-500 dark:text-gray-400'>
-          Supercharge your hiring by taking advantage of our{' '}
-          <a
-            href='#'
-            className='text-blue-600 underline dark:text-blue-500 hover:no-underline'
-          >
-            limited-time sale
-          </a>{' '}
-          for Flowbite Docs + Job Board. Unlimited access to over 190K
-          top-ranked candidates and the #1 design job board.
-        </p>
         <div className='grid grid-cols-2 gap-4'>
-          <a
-            href='#'
-            className='px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700'
-          >
-            Learn more
-          </a>
           <a
             href='#'
             className='inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'
@@ -90,4 +74,10 @@ export default function SideDrawer() {
       </div>
     </div>
   );
-}
+};
+
+const mapStateToProps = (state) => ({
+  drawerTitle: state.getIn(['app', 'drawerTitle']),
+});
+
+export default connect(mapStateToProps, null)(SideDrawer);

@@ -4,10 +4,13 @@ import { OrbitControls, Environment, ContactShadows } from '@react-three/drei';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { DoubleSide, Mesh, PerspectiveCamera } from 'three';
 import { Drawer } from 'flowbite';
+import { connect } from 'react-redux';
 
 import { World } from '../../../components/models';
 
-export const Landing = () => {
+import { setDrawerTitle } from '@/components/drawer/store/actions';
+
+const LandingComponent = ({ setDrawerTitle }) => {
   // set the drawer menu element
   // let $targetEl = {};
   // options with default values
@@ -43,8 +46,9 @@ export const Landing = () => {
     // drawer.hide();
   }, []);
 
-  const onDrawerToggle = () => {
+  const onDrawerToggle = (title) => {
     drawer.toggle();
+    setDrawerTitle(title);
   };
 
   return (
@@ -76,3 +80,7 @@ export const Landing = () => {
     </div>
   );
 };
+
+const Landing = connect(null, { setDrawerTitle })(LandingComponent);
+
+export { Landing };

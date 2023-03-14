@@ -21,14 +21,12 @@ export default function Sail({
     }
   }, [hovered]);
 
-  console.log(onDrawerToggle);
-
   return (
     <group
       {...props}
       onPointerOver={(e) => set(true)}
       onPointerOut={() => set(false)}
-      onClick={() => onDrawerToggle()}
+      onClick={() => onDrawerToggle('About Me')}
     >
       <group ref={ref}>
         {/* {children} */}
