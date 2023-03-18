@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 
 import { World } from '../../../components/models';
 
-import { setDrawerTitle } from '@/components/drawer/store/actions';
+import { setDrawerTitle } from '@/components/elements/drawer/store/actions';
 
 const LandingComponent = ({ setDrawerTitle }) => {
   // set the drawer menu element

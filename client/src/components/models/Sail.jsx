@@ -26,7 +26,7 @@ export default function Sail({
       {...props}
       onPointerOver={(e) => set(true)}
       onPointerOut={() => set(false)}
-      onClick={() => onDrawerToggle('About Me')}
+      onClick={() => onDrawerToggle(label)}
     >
       <group ref={ref}>
         {/* {children} */}

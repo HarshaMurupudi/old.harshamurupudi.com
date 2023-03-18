@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  drawerTitle: '',
+  drawerTitle: 'Bio',
 };
 
 const reducer = (state = INITIAL_STATE, action) => {

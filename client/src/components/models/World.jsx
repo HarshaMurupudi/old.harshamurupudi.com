@@ -122,8 +122,8 @@ export function World(props) {
         onDrawerToggle={props.onDrawerToggle}
       />
       <Shark
-        position={[5.88, -0.4, 11.06]}
-        rotation={[Math.PI / 2, -0.36, 0]}
+        position={[5.88, -0.3, 11.06]}
+        rotation={[Math.PI / 2, -0.36, -1.6]}
         scale={[2, 2, 1.83]}
         geometry={nodes.Plane005.geometry}
         material={materials['Shark Fin']}

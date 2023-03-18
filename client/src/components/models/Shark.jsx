@@ -36,7 +36,6 @@ export default function Shark({
       onClick={() => onDrawerToggle(label)}
     >
       <group ref={ref}>
-        {/* {children} */}
         <mesh geometry={geometry} material={material} />
         {hovered && (
           <Html distanceFactor={10} zIndexRange={[2, 6]}>
