@@ -5,12 +5,16 @@ import SideDrawer from '@/components/elements/drawer';
 import About from '@/features/about';
 import Collection from '@/features/collection';
 import Comics from '@/features/comics';
+import Projects from '@/features/projects';
+import Work from '@/features/work';
 
 const AppLayout = ({ drawerTitle, children }) => {
   const componentLookup = {
     Bio: About,
-    Collection: Collection,
-    Comics: Comics,
+    Collection,
+    Comics,
+    Projects,
+    Work,
   };
 
   const DrawerContentComponent = componentLookup[drawerTitle];
