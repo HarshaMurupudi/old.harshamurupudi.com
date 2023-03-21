@@ -1,10 +1,9 @@
-import { Card } from 'flowbite-react';
-
-const ImageCard = ({ imgSrc }) => {
+const ImageCard = ({ imgSrc, contentCategory, onDrawerContentClick }) => {
+  console.log(onDrawerContentClick);
   return (
-    <div>
+    <div onClick={() => onDrawerContentClick(contentCategory)}>
       <div
-        class='relative h-80 w-full max-w-full rounded-lg flex items-end justify-start text-left bg-cover bg-center'
+        className='relative h-80 w-full max-w-full rounded-lg flex items-end justify-start text-left bg-cover bg-center'
         style={{
           backgroundImage: `url(${imgSrc})`,
         }}

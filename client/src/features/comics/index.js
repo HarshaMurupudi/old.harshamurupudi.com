@@ -1,9 +1,12 @@
 import ImageCollection from '@/components/elements/ImageCollection';
 
-const Comics = () => {
+const Comics = ({ onDrawerContentClick }) => {
   return (
     <div>
-      <ImageCollection />
+      <ImageCollection
+        onDrawerContentClick={onDrawerContentClick}
+        contentCategory={'Comics'}
+      />
     </div>
   );
 };

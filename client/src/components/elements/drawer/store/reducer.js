@@ -1,13 +1,19 @@
 const INITIAL_STATE = {
-  drawerTitle: 'Bio',
+  drawerContentCategory: 'Comics',
+  drawerContentType: 'Collection',
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'SET_DRAWER_TITLE':
+    case 'SET_DRAWER_CONTENT_TYPE':
       return {
         ...state,
-        drawerTitle: action.payload,
+        drawerContentType: action.payload,
+      };
+    case 'SET_DRAWER_CONTENT_CATEGORY':
+      return {
+        ...state,
+        drawerContentCategory: action.payload,
       };
     default:
       return state;

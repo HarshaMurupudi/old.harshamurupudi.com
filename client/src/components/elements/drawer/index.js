@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const SideDrawer = ({ drawerTitle, children }) => {
+const SideDrawer = ({ drawerContentCategory, children }) => {
   return (
     <div>
       <div
@@ -27,7 +27,7 @@ const SideDrawer = ({ drawerTitle, children }) => {
               clip-rule='evenodd'
             ></path>
           </svg>
-          {drawerTitle}
+          {drawerContentCategory}
         </h5>
         <button
           id='drawer-hide-button'
@@ -57,7 +57,7 @@ const SideDrawer = ({ drawerTitle, children }) => {
 };
 
 const mapStateToProps = (state) => ({
-  drawerTitle: state.getIn(['app', 'drawerTitle']),
+  drawerContentCategory: state.getIn(['app', 'drawerContentCategory']),
 });
 
 export default connect(mapStateToProps, null)(SideDrawer);

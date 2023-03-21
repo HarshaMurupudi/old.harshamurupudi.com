@@ -8,9 +8,15 @@ import { connect } from 'react-redux';
 
 import { World } from '../../../components/models';
 
-import { setDrawerTitle } from '@/components/elements/drawer/store/actions';
+import {
+  setDrawerContentCategory,
+  setDrawerContentType,
+} from '@/components/elements/drawer/store/actions';
 
-const LandingComponent = ({ setDrawerTitle }) => {
+const LandingComponent = ({
+  setDrawerContentType,
+  setDrawerContentCategory,
+}) => {
   // set the drawer menu element
   // let $targetEl = {};
   // options with default values
@@ -29,6 +35,7 @@ const LandingComponent = ({ setDrawerTitle }) => {
         'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-30',
       onHide: () => {
         console.log('drawer is hidden');
+        setDrawerContentType('Collection');
       },
       onShow: () => {
         console.log('drawer is shown');
@@ -48,7 +55,8 @@ const LandingComponent = ({ setDrawerTitle }) => {
 
   const onDrawerToggle = (title) => {
     drawer.toggle();
-    setDrawerTitle(title);
+    setDrawerContentCategory(title);
+    setDrawerContentType('Collection');
   };
 
   return (
@@ -81,6 +89,9 @@ const LandingComponent = ({ setDrawerTitle }) => {
   );
 };
 
-const Landing = connect(null, { setDrawerTitle })(LandingComponent);
+const Landing = connect(null, {
+  setDrawerContentType,
+  setDrawerContentCategory,
+})(LandingComponent);
 
 export { Landing };

@@ -7,22 +7,49 @@ import Collection from '@/features/collection';
 import Comics from '@/features/comics';
 import Projects from '@/features/projects';
 import Work from '@/features/work';
+import ImageDetails from '@/features/ImageDetails';
 
-const AppLayout = ({ drawerTitle, children }) => {
-  const componentLookup = {
+import {
+  setDrawerContentType,
+  setDrawerContentCategory,
+} from '@/components/elements/drawer/store/actions';
+
+const AppLayout = ({
+  drawerContentCategory,
+  drawerContentType,
+  children,
+  setDrawerContentType,
+  setDrawerContentCategory,
+}) => {
+  const collectionComponentLookup = {
     Bio: About,
     Collection,
     Comics,
     Projects,
     Work,
+    ImageDetails,
   };
 
-  const DrawerContentComponent = componentLookup[drawerTitle];
+  const detailsComponentKey = `${drawerContentCategory} ${drawerContentType}`;
+  const detailsComponentLookup = {
+    'Comics Details': ImageDetails,
+    'Collection Details': ImageDetails,
+  };
+
+  const DrawerContentComponent =
+    drawerContentType === 'Collection'
+      ? collectionComponentLookup[drawerContentCategory]
+      : detailsComponentLookup[detailsComponentKey];
+
+  const onDrawerContentClick = (category) => {
+    setDrawerContentCategory(category);
+    setDrawerContentType('Details');
+  };
 
   return (
     <div>
       <SideDrawer>
-        <DrawerContentComponent />
+        <DrawerContentComponent onDrawerContentClick={onDrawerContentClick} />
       </SideDrawer>
       {children}
     </div>
@@ -30,7 +57,11 @@ const AppLayout = ({ drawerTitle, children }) => {
 };
 
 const mapStateToProps = (state) => ({
-  drawerTitle: state.getIn(['app', 'drawerTitle']),
+  drawerContentCategory: state.getIn(['app', 'drawerContentCategory']),
+  drawerContentType: state.getIn(['app', 'drawerContentType']),
 });
 
-export default connect(mapStateToProps, null)(AppLayout);
+export default connect(mapStateToProps, {
+  setDrawerContentType,
+  setDrawerContentCategory,
+})(AppLayout);
