@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { Drawer } from 'flowbite';
 
 import SideDrawer from '@/components/elements/drawer';
 import About from '@/features/about';
@@ -46,12 +47,71 @@ const AppLayout = ({
     setDrawerContentType('Details');
   };
 
+  let drawer = {};
+  const options = {
+    placement: 'right',
+    backdrop: true,
+    bodyScrolling: false,
+    edge: false,
+    edgeOffset: '',
+    backdropClasses:
+      'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-30',
+    onHide: () => {
+      console.log('drawer is hidden');
+      setDrawerContentType('Collection');
+    },
+    onShow: () => {
+      console.log('drawer is shown');
+    },
+    onToggle: () => {
+      console.log('drawer has been toggledd');
+    },
+  };
+
+  useEffect(() => {
+    // $targetEl = document.getElementById('drawer-js-example');
+
+    // const drawer = {};
+
+    // set the drawer menu element
+    const $targetEl = document.getElementById('drawer-js-example') || null;
+    drawer = new Drawer($targetEl, options);
+
+    // drawer.hide();
+  }, []);
+
+  const onDrawerToggle = (title) => {
+    if (drawer.toggle) {
+      console.log(drawer);
+      drawer.toggle();
+    } else {
+      // set the drawer menu element
+      const $targetEl = document.getElementById('drawer-js-example') || null;
+      drawer = new Drawer($targetEl, options);
+
+      console.log(drawer);
+      drawer.toggle();
+    }
+
+    setDrawerContentCategory(title);
+    setDrawerContentType('Collection');
+  };
+
+  const childrenWithProps = React.Children.map(children, (child) => {
+    // Checking isValidElement is the safe way and avoids a
+    // typescript error too.
+    if (React.isValidElement(child)) {
+      return React.cloneElement(child, { onDrawerToggle });
+    }
+    return child;
+  });
+
   return (
     <div>
       <SideDrawer>
         <DrawerContentComponent onDrawerContentClick={onDrawerContentClick} />
       </SideDrawer>
-      {children}
+      {childrenWithProps}
     </div>
   );
 };
