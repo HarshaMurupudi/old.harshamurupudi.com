@@ -1,6 +1,6 @@
 import { Button } from 'flowbite-react';
 
-const HorizontalCard = () => {
+const HorizontalCard = ({ contentCategory, onDrawerContentClick }) => {
   return (
     <div className='flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700'>
       <div class='flex flex-col justify-between p-4 leading-normal'>
@@ -20,7 +20,7 @@ const HorizontalCard = () => {
         </p>
 
         <div className='flex flex-wrap gap-2'>
-          <div>
+          <div onClick={() => onDrawerContentClick(contentCategory)}>
             <Button color='gray'>Gray</Button>
           </div>
           <div>

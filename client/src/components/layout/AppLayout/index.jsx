@@ -9,6 +9,7 @@ import Comics from '@/features/comics';
 import Projects from '@/features/projects';
 import Work from '@/features/work';
 import ImageDetails from '@/features/ImageDetails';
+import Article from '@/features/article';
 
 import {
   setDrawerContentType,
@@ -35,6 +36,7 @@ const AppLayout = ({
   const detailsComponentLookup = {
     'Comics Details': ImageDetails,
     'Collection Details': ImageDetails,
+    'Article Details': Article,
   };
 
   const DrawerContentComponent =
@@ -58,6 +60,7 @@ const AppLayout = ({
       'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-30',
     onHide: () => {
       console.log('drawer is hidden');
+      setDrawerContentCategory('Comics');
       setDrawerContentType('Collection');
     },
     onShow: () => {

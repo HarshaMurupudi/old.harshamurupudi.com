@@ -1,9 +1,12 @@
 import HorizontalCardCollection from '@/components/elements/HorizontalCardCollection';
 
-const Projects = () => {
+const Projects = ({ onDrawerContentClick }) => {
   return (
     <div>
-      <HorizontalCardCollection />
+      <HorizontalCardCollection
+        onDrawerContentClick={onDrawerContentClick}
+        contentCategory={'Article'}
+      />
     </div>
   );
 };
