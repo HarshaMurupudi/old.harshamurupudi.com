@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
   drawerContentCategory: 'Comics',
   drawerContentType: 'Collection',
+  drawerContentId: '',
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -14,6 +15,11 @@ const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         drawerContentCategory: action.payload,
+      };
+    case 'SET_DRAWER_CONTENT_ID':
+      return {
+        ...state,
+        drawerContentId: action.payload,
       };
     default:
       return state;

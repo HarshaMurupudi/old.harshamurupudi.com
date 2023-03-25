@@ -11,3 +11,10 @@ export const setDrawerContentType = (title) => (dispatch) => {
     payload: title,
   });
 };
+
+export const setDrawerContentId = (title) => (dispatch) => {
+  dispatch({
+    type: 'SET_DRAWER_CONTENT_ID',
+    payload: title,
+  });
+};

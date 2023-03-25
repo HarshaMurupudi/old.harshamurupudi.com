@@ -14,6 +14,7 @@ import Article from '@/features/article';
 import {
   setDrawerContentType,
   setDrawerContentCategory,
+  setDrawerContentId,
 } from '@/components/elements/drawer/store/actions';
 
 const AppLayout = ({
@@ -22,6 +23,7 @@ const AppLayout = ({
   children,
   setDrawerContentType,
   setDrawerContentCategory,
+  setDrawerContentId,
 }) => {
   const collectionComponentLookup = {
     Bio: About,
@@ -44,9 +46,10 @@ const AppLayout = ({
       ? collectionComponentLookup[drawerContentCategory]
       : detailsComponentLookup[detailsComponentKey];
 
-  const onDrawerContentClick = (category) => {
+  const onDrawerContentClick = (category, id) => {
     setDrawerContentCategory(category);
     setDrawerContentType('Details');
+    setDrawerContentId(id);
   };
 
   let drawer = {};
@@ -127,4 +130,5 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
   setDrawerContentType,
   setDrawerContentCategory,
+  setDrawerContentId,
 })(AppLayout);

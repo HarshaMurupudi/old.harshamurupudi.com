@@ -1,45 +1,27 @@
 import ImageCard from '../ImageCard';
 
-const ImageCollection = ({ contentCategory, onDrawerContentClick }) => {
-  // console.log(props, 'collection');
+const ImageCollection = ({
+  contentCategory,
+  onDrawerContentClick,
+  collection,
+}) => {
   return (
     <div class='grid grid-cols-2 md:grid-cols-3 gap-4'>
-      <div>
-        <ImageCard
-          imgSrc={
-            'https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg'
-          }
-          contentCategory={contentCategory}
-          onDrawerContentClick={onDrawerContentClick}
-        />
-      </div>
-      <div>
-        <ImageCard
-          imgSrc={
-            'https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg'
-          }
-          contentCategory={contentCategory}
-          onDrawerContentClick={onDrawerContentClick}
-        />
-      </div>
-      <div>
-        <ImageCard
-          imgSrc={
-            'https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg'
-          }
-          contentCategory={contentCategory}
-          onDrawerContentClick={onDrawerContentClick}
-        />
-      </div>
-      <div>
-        <ImageCard
-          imgSrc={
-            'https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg'
-          }
-          contentCategory={contentCategory}
-          onDrawerContentClick={onDrawerContentClick}
-        />
-      </div>
+      {(collection || []).map(({ id, title, src, tags, createdDate }) => {
+        return (
+          <div>
+            <ImageCard
+              imgSrc={src}
+              contentCategory={contentCategory}
+              onDrawerContentClick={onDrawerContentClick}
+              tags={tags}
+              title={title}
+              createdDate={createdDate}
+              id={id}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 };

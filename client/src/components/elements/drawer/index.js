@@ -1,7 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {
+  setDrawerContentCategory,
+  setDrawerContentType,
+} from './store/actions';
 
-const SideDrawer = ({ drawerContentCategory, children }) => {
+const SideDrawer = ({
+  drawerContentCategory,
+  children,
+  setDrawerContentCategory,
+  setDrawerContentType,
+}) => {
+  const handleCategoryClick = () => {
+    setDrawerContentCategory(drawerContentCategory);
+    setDrawerContentType('Collection');
+  };
+
   return (
     <div>
       <div
@@ -13,6 +27,7 @@ const SideDrawer = ({ drawerContentCategory, children }) => {
         <h5
           id='drawer-js-label'
           className='inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400'
+          onClick={() => handleCategoryClick()}
         >
           <svg
             className='w-5 h-5 mr-2'
@@ -60,4 +75,7 @@ const mapStateToProps = (state) => ({
   drawerContentCategory: state.getIn(['app', 'drawerContentCategory']),
 });
 
-export default connect(mapStateToProps, null)(SideDrawer);
+export default connect(mapStateToProps, {
+  setDrawerContentCategory,
+  setDrawerContentType,
+})(SideDrawer);
