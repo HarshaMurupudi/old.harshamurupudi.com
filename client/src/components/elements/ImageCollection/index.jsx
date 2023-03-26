@@ -1,11 +1,12 @@
 import ImageCard from '../ImageCard';
+import Empty from '@/features/empty';
 
 const ImageCollection = ({
   contentCategory,
   onDrawerContentClick,
   collection,
 }) => {
-  return (
+  return collection.length > 0 ? (
     <div class='grid grid-cols-2 md:grid-cols-3 gap-4'>
       {(collection || []).map(({ id, title, src, tags, createdDate }) => {
         return (
@@ -23,6 +24,8 @@ const ImageCollection = ({
         );
       })}
     </div>
+  ) : (
+    <Empty />
   );
 };
 
