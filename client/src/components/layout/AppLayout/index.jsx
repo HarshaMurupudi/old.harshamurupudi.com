@@ -2,20 +2,20 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Drawer } from 'flowbite';
 
-import SideDrawer from '@/components/elements/drawer';
-import About from '@/features/about';
-import Collection from '@/features/collection';
-import Comics from '@/features/comics';
-import Projects from '@/features/projects';
-import Work from '@/features/work';
-import ImageDetails from '@/features/ImageDetails';
-import Article from '@/features/article';
+import SideDrawer from '../../../components/elements/drawer';
+import About from '../../../features/about';
+import Collection from '../../../features/collection';
+import Comics from '../../../features/comics';
+import Projects from '../../../features/projects';
+import Work from '../../../features/work';
+import ImageDetails from '../../../features/ImageDetails';
+import Article from '../../../features/article';
 
 import {
   setDrawerContentType,
   setDrawerContentCategory,
   setDrawerContentId,
-} from '@/components/elements/drawer/store/actions';
+} from '../../elements/drawer/store/actions';
 
 const AppLayout = ({
   drawerContentCategory,
@@ -106,11 +106,18 @@ const AppLayout = ({
   const childrenWithProps = React.Children.map(children, (child) => {
     // Checking isValidElement is the safe way and avoids a
     // typescript error too.
+
+    console.log(children, child);
     if (React.isValidElement(child)) {
+      console.log('valid');
+
+      console.log(React.cloneElement(child, { onDrawerToggle }));
       return React.cloneElement(child, { onDrawerToggle });
     }
     return child;
   });
+
+  console.log(childrenWithProps);
 
   return (
     <div>

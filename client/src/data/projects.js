@@ -6,6 +6,7 @@ export const projectsData = [
     createdDate: new Date('2022-03-25'),
     title: 'Curated Handicrafts',
     description: 'E-commerce website for handicrafts',
+    slug: 'curated-handicrafts',
     actions: {
       article: '',
     },

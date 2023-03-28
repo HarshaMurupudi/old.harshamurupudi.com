@@ -5,7 +5,11 @@ import reducer from './reducer';
 
 const middlewares = [logger, thunk];
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const isBrowser = typeof window !== 'undefined';
+
+const composeEnhancers = isBrowser
+  ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+  : compose;
 
 const store = createStore(
   reducer,

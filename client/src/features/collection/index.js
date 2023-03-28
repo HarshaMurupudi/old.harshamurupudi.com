@@ -1,6 +1,8 @@
-import ImageCollection from '@/components/elements/ImageCollection';
+import React from 'react';
 
-import { collectionData } from '@/data/collection';
+import ImageCollection from '../../components/elements/ImageCollection';
+
+import { collectionData } from '../../data/collection';
 
 const Collection = ({ onDrawerContentClick }) => {
   return (

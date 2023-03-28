@@ -1,3 +1,5 @@
+import React from 'react';
+
 import HorizontalCard from '../HorizontalCard';
 
 const HorizontalCardCollection = ({

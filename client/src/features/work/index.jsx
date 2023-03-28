@@ -1,4 +1,6 @@
-import HorizontalCardCollection from '@/components/elements/HorizontalCardCollection';
+import React from 'react';
+
+import HorizontalCardCollection from '../../components/elements/HorizontalCardCollection';
 
 const Work = ({ onDrawerContentClick }) => {
   return (

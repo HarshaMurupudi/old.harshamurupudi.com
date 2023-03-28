@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { World } from '../../../components/models';
 
 const LandingComponent = (props) => {
+  console.log(props);
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
       <Canvas

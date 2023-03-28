@@ -1,6 +1,8 @@
-import HorizontalCardCollection from '@/components/elements/HorizontalCardCollection';
+import React from 'react';
 
-import { projectsData } from '@/data/projects';
+import HorizontalCardCollection from '../../components/elements/HorizontalCardCollection';
+
+import { projectsData } from '../../data/projects';
 
 const Projects = ({ onDrawerContentClick }) => {
   return (

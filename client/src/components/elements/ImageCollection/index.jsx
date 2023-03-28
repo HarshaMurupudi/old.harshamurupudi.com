@@ -1,5 +1,7 @@
+import React from 'react';
+
 import ImageCard from '../ImageCard';
-import Empty from '@/features/empty';
+import Empty from '../../../features/empty';
 
 const ImageCollection = ({
   contentCategory,

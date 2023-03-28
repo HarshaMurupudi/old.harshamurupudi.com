@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
-import { collectionData } from '@/data/collection';
+import { collectionData } from '../../data/collection';
 
 function ImageDetails({ drawerContentId }) {
   const [imageDetails, setImageDetails] = useState('');

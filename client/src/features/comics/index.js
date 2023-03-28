@@ -1,6 +1,8 @@
-import ImageCollection from '@/components/elements/ImageCollection';
+import React from 'react';
 
-import { comicsData } from '@/data/comics';
+import ImageCollection from '../../components/elements/ImageCollection';
+
+import { comicsData } from '../../data/comics';
 
 const Comics = ({ onDrawerContentClick }) => {
   return (
