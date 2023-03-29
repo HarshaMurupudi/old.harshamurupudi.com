@@ -11,6 +11,7 @@ const HorizontalCard = ({
   tags,
   createdDate,
   description,
+  slug,
   actions,
 }) => {
   return (
@@ -35,7 +36,7 @@ const HorizontalCard = ({
         <div className='flex flex-wrap gap-2'>
           {Object.keys(actions).map((action) => {
             return (
-              <div onClick={() => onDrawerContentClick(contentCategory)}>
+              <div onClick={() => onDrawerContentClick(contentCategory, slug)}>
                 <Button color='gray'>{action}</Button>
               </div>
             );

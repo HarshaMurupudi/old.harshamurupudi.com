@@ -10,7 +10,7 @@ const HorizontalCardCollection = ({
   return (
     <div class='grid grid-cols-2 md:grid-cols-3 gap-4'>
       {(collection || []).map(
-        ({ id, title, tags, createdDate, description, actions }) => {
+        ({ id, title, tags, createdDate, description, slug, actions }) => {
           return (
             <div>
               <HorizontalCard
@@ -21,6 +21,7 @@ const HorizontalCardCollection = ({
                 createdDate={createdDate}
                 id={id}
                 description={description}
+                slug={slug}
                 actions={actions}
               />
             </div>

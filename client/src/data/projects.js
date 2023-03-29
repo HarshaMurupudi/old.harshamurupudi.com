@@ -18,6 +18,7 @@ export const projectsData = [
     createdDate: new Date('2022-03-25'),
     title: 'Divis Vanishers',
     description: 'E-commerce website for laundry services',
+    slug: 'divis-vanishers',
     actions: {
       articles: '',
     },
@@ -29,6 +30,7 @@ export const projectsData = [
     createdDate: new Date('2022-03-25'),
     title: 'Sindhura Hospital',
     description: 'Business website for the hospital',
+    slug: 'sindhura-hospital',
     actions: {
       articles: '',
     },
@@ -41,6 +43,7 @@ export const projectsData = [
     title: 'I Love Bookmarks',
     description:
       'A Google chrome bookmark organizer with cool icons and drag & drop feature.',
+    slug: 'i-love-bookmarks',
     actions: {
       demo: 'https://chrome.google.com/webstore/detail/i-love-bookmarks/dfgjmhdilimpooppfbinonkmldfgjkab?hl=en-US',
     },

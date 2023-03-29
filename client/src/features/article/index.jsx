@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import * as runtime from 'react/jsx-runtime';
 import { compileSync, runSync } from '@mdx-js/mdx';
+import { connect } from 'react-redux';
 
 function compileMDX(mdx) {
   const code = String(
@@ -14,8 +15,10 @@ function compileMDX(mdx) {
   return code;
 }
 
-function Article(props) {
+function Article({ drawerContentId }) {
   const [content, setContent] = useState();
+
+  console.log(drawerContentId);
 
   const {
     allMdx: { nodes },
@@ -40,7 +43,14 @@ function Article(props) {
 
   useEffect(() => {
     // props.data_for_blocks.body is the raw MDX body
-    const { body } = nodes[0];
+
+    const selectedNode = nodes.find(
+      (node) => node.fields.slug === `/${drawerContentId}/`
+    );
+
+    const { body } = selectedNode;
+
+    console.log(nodes);
     const code = compileMDX(body);
 
     const { default: Content } = runSync(code, runtime);
@@ -50,4 +60,8 @@ function Article(props) {
   return <div>{content && content}</div>;
 }
 
-export default Article;
+const mapStateToProps = (state) => ({
+  drawerContentId: state.getIn(['app', 'drawerContentId']),
+});
+
+export default connect(mapStateToProps, null)(Article);
