@@ -1,5 +1,7 @@
 import React from 'react';
 
+// import harshaImage from '/images/me/harsha.JPG';
+
 const About = () => {
   return (
     <div className='px-10'>
@@ -12,15 +14,15 @@ const About = () => {
           <span className='text-3xl text-gray-900 dark:text-white'>Harsha</span>
         </p>
         <p className='text-3xl text-gray-600 dark:text-white'>
-          Software Developer, cartoonist, and loves plants
+          Software Developer & cartoonist
         </p>
       </div>
 
-      <div className='mt-12'>
-        <p className='font-semibold mb-3'>A little context</p>
+      <div className='mt-4 mb-4'>
+        <p className='font-semibold'>A little context</p>
 
-        <div class='grid grid-cols-2 gap-12'>
-          <div className='pr-2'>
+        <div className='grid grid-cols-2 gap-12 place-content-center'>
+          <div className='p-6'>
             <p class='mb-3 font-normal text-gray-900 dark:text-gray-400'>
               I sit at the intersection of design, anthropology, and
               programming. These three are at the core of everything I make.
@@ -49,17 +51,17 @@ const About = () => {
               to say hi! I always appreciate meeting new people.
             </p>
           </div>
-          <div>
+          <div className='p-6'>
             <img
-              className='h-auto max-w-full rounded-lg ml-2'
-              src='https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg'
+              className='h-auto w-2/3 rounded-lg ml-2'
+              src={'/images/me/harsha.JPG'}
               alt=''
             />
           </div>
         </div>
       </div>
 
-      <div className='my-8'>
+      <div className='mt-8'>
         <div class='flex justify-center space-x-2 text-neutral-700 dark:text-neutral-300'>
           {/* Github */}
           <svg

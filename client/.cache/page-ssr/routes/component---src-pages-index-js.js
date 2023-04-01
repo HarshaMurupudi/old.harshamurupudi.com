@@ -4584,9 +4584,9 @@ function World(props) {
   const {
     nodes,
     materials
-  } = (0,_react_three_drei__WEBPACK_IMPORTED_MODULE_3__.useGLTF)('./models/pirate-raft-world.glb');
-  const colorMap = (0,_react_three_fiber__WEBPACK_IMPORTED_MODULE_4__.D)(three_src_loaders_TextureLoader__WEBPACK_IMPORTED_MODULE_5__.TextureLoader, './textures/sand2.png');
-  const oceanTexture = (0,_react_three_fiber__WEBPACK_IMPORTED_MODULE_4__.D)(three_src_loaders_TextureLoader__WEBPACK_IMPORTED_MODULE_5__.TextureLoader, './textures/Ocean.png');
+  } = (0,_react_three_drei__WEBPACK_IMPORTED_MODULE_3__.useGLTF)('/models/pirate-raft-world.glb');
+  const colorMap = (0,_react_three_fiber__WEBPACK_IMPORTED_MODULE_4__.D)(three_src_loaders_TextureLoader__WEBPACK_IMPORTED_MODULE_5__.TextureLoader, '/textures/sand2.png');
+  const oceanTexture = (0,_react_three_fiber__WEBPACK_IMPORTED_MODULE_4__.D)(three_src_loaders_TextureLoader__WEBPACK_IMPORTED_MODULE_5__.TextureLoader, '/textures/Ocean.png');
   materials['Ocean'].color = {
     r: 147 / 255,
     g: 216 / 255,

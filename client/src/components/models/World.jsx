@@ -11,9 +11,9 @@ import Shark from './Shark';
 import Sail from './Sail';
 
 export function World(props) {
-  const { nodes, materials } = useGLTF('./models/pirate-raft-world.glb');
-  const colorMap = useLoader(TextureLoader, './textures/sand2.png');
-  const oceanTexture = useLoader(TextureLoader, './textures/Ocean.png');
+  const { nodes, materials } = useGLTF('/models/pirate-raft-world.glb');
+  const colorMap = useLoader(TextureLoader, '/textures/sand2.png');
+  const oceanTexture = useLoader(TextureLoader, '/textures/Ocean.png');
 
   materials['Ocean'].color = {
     r: 147 / 255,
