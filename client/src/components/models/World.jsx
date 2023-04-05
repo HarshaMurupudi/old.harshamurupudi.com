@@ -248,4 +248,4 @@ export function World(props) {
   );
 }
 
-useGLTF.preload('./models/pirate-raft-world.glb');
+useGLTF.preload('/models/pirate-raft-world.glb');
