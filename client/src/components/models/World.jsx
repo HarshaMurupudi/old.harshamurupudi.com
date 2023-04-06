@@ -9,6 +9,7 @@ import { TextureLoader } from 'three/src/loaders/TextureLoader';
 import { Canvas, useLoader } from '@react-three/fiber';
 import Shark from './Shark';
 import Sail from './Sail';
+import Gauca from './Gauca';
 
 export function World(props) {
   const { nodes, materials } = useGLTF('/models/pirate-raft-world.glb');
@@ -92,6 +93,8 @@ export function World(props) {
           material={materials['Wood - Dark']}
         />
       </group>
+      {/* <group position={[-4.92, 6.01, -0.02]}></group> */}
+      <Gauca />
       <group position={[-4.92, 6.01, -0.02]}>
         <mesh
           geometry={nodes.Cylinder001.geometry}
