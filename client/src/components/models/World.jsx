@@ -93,8 +93,7 @@ export function World(props) {
           material={materials['Wood - Dark']}
         />
       </group>
-      {/* <group position={[-4.92, 6.01, -0.02]}></group> */}
-      <Gauca />
+      <Gauca initial={0} label={'Hi'} onDrawerToggle={props.onDrawerToggle} />
       <group position={[-4.92, 6.01, -0.02]}>
         <mesh
           geometry={nodes.Cylinder001.geometry}

@@ -1,8 +1,18 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useGLTF } from '@react-three/drei';
+import { Html } from '@react-three/drei';
 
-export default function Gauca(props) {
+export default function Gauca({ initial, label, onDrawerToggle, ...props }) {
   const { nodes, materials } = useGLTF('/models/Gauca.glb');
+  const ref = useRef();
+  const [hovered, set] = useState(false);
+  useEffect(() => {
+    if (hovered) {
+      document.body.style.cursor = `pointer`;
+      return () => (document.body.style.cursor = `auto`);
+    }
+  }, [hovered]);
+
   return (
     <group
       {...props}
@@ -10,6 +20,10 @@ export default function Gauca(props) {
       scale={2}
       position={[-5.29, 0.5, -5.03]}
       rotation={[0.0, -0.2, 0.0]}
+      onPointerOver={(e) => set(true)}
+      onPointerOut={() => set(false)}
+      onClick={() => onDrawerToggle(label)}
+      ref={ref}
     >
       <group position={[2.85, 1.51, 2.86]} rotation={[-0.04, 0.04, -0.25]}>
         <mesh
@@ -19,6 +33,11 @@ export default function Gauca(props) {
           rotation={[Math.PI / 2, 0, 0]}
           scale={0.2}
         />
+        {hovered && (
+          <Html distanceFactor={10} zIndexRange={[2, 6]}>
+            <div className='content'>{label}</div>
+          </Html>
+        )}
       </group>
       <mesh
         geometry={nodes.Cylinder002.geometry}
