@@ -10,6 +10,7 @@ import Projects from '../../../features/projects';
 import Work from '../../../features/work';
 import ImageDetails from '../../../features/ImageDetails';
 import Article from '../../../features/article';
+import Chat from '../../../features/chat';
 
 import {
   setDrawerContentType,
@@ -32,6 +33,7 @@ const AppLayout = ({
     Projects,
     Work,
     ImageDetails,
+    Chat,
   };
 
   const detailsComponentKey = `${drawerContentCategory} ${drawerContentType}`;
@@ -87,10 +89,17 @@ const AppLayout = ({
   }, []);
 
   const onDrawerToggle = (title) => {
+    console.log('toggle hit!');
+
     if (drawer.toggle) {
-      console.log(drawer);
-      drawer.toggle();
+      console.log('toggle exists');
+      console.log(drawer.toggle);
+      // drawer.toggle();
+      // test
+      drawer.show();
+      //  this.hide();
     } else {
+      console.log('toogle created');
       // set the drawer menu element
       const $targetEl = document.getElementById('drawer-js-example') || null;
       drawer = new Drawer($targetEl, options);
