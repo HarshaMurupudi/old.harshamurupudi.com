@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send({ 'hello': 'there!' });
-});
+app.use(express.json());
+
+require('./routes/dialogFlowRoutes')(app);
 
 app.listen(5001);
