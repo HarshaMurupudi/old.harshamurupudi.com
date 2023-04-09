@@ -57,6 +57,10 @@ typings/
 # gatsby files
 client/.cache/
 client/public
+client/node_modules/
+
+#server
+server/node_modules/
 
 # Mac files
 .DS_Store

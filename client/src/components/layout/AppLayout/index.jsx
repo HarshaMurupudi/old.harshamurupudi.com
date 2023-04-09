@@ -95,16 +95,11 @@ const AppLayout = ({
       console.log('toggle exists');
       console.log(drawer.toggle);
       // drawer.toggle();
-      // test
       drawer.show();
-      //  this.hide();
     } else {
-      console.log('toogle created');
-      // set the drawer menu element
       const $targetEl = document.getElementById('drawer-js-example') || null;
       drawer = new Drawer($targetEl, options);
 
-      console.log(drawer);
       drawer.toggle();
     }
 
