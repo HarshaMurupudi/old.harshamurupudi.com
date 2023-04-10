@@ -61,6 +61,7 @@ client/node_modules/
 
 #server
 server/node_modules/
+server/config/
 
 # Mac files
 .DS_Store
