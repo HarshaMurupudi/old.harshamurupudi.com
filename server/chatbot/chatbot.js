@@ -1,5 +1,8 @@
 'use strict';
 const dialogflow = require('dialogflow');
+const structjson = require('structjson');
+const { struct } = require('pb-util');
+
 const config = require('../config/keys');
 
 const projectID = config.googleProjectID;
@@ -21,15 +24,30 @@ module.exports = {
       session: sessionPath,
       queryInput: {
         text: {
-          // The query to send to the dialogflow agent
           text: text,
-          // The language used by the client (en-US)
           languageCode: config.dialogFlowSessionLanguageCode,
         },
       },
       queryParams: {
         payload: {
           data: parameters,
+        },
+      },
+    };
+    let responses = await sessionClient.detectIntent(request);
+    responses = await self.handleAction(responses);
+    return responses;
+  },
+  eventQuery: async function (event, parameters = {}) {
+    let self = module.exports;
+    const request = {
+      session: sessionPath,
+      queryInput: {
+        event: {
+          name: event,
+          parameters: structjson.jsonToStructProto(parameters),
+          // parameters: struct.encode(parameters),
+          languageCode: config.dialogFlowSessionLanguageCode,
         },
       },
     };
