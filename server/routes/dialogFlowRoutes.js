@@ -12,6 +12,7 @@ module.exports = (app) => {
       // Send request and log result
       let responses = await chatbot.textQuery(
         req.body.text,
+        req.body.userID,
         req.body.parameters
       );
       res.send(responses[0].queryResult);
@@ -26,6 +27,7 @@ module.exports = (app) => {
       // Send request and log result
       let responses = await chatbot.eventQuery(
         req.body.event,
+        req.body.userID,
         req.body.parameters
       );
       res.send(responses[0].queryResult);

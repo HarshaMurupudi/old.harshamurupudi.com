@@ -1,9 +1,30 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import Cookies from 'universal-cookie';
+import { v4 as uuid } from 'uuid';
 
 import Message from '../../components/elements/chatbot/Message';
 
+const cookies = new Cookies();
+
+const useConstructor = (callBack = () => {}) => {
+  const [hasBeenCalled, setHasBeenCalled] = useState(false);
+  if (hasBeenCalled) return;
+  callBack();
+  setHasBeenCalled(true);
+};
+
 function Chat() {
+  useConstructor(() => {
+    console.log('Occurs ONCE, BEFORE the initial render.');
+
+    if (cookies.get('userID') === undefined) {
+      cookies.set('userID', uuid(), { path: '/' });
+    }
+
+    console.log(cookies.get('userID'));
+  });
+
   let mainRef = useRef(null);
   const [messages, setMessages] = useState([]);
 
@@ -29,6 +50,7 @@ function Chat() {
 
     const res = await axios.post('http://localhost:5001/api/df_text_query', {
       text,
+      userID: cookies.get('userID'),
     });
 
     const newData = [];
@@ -45,6 +67,7 @@ function Chat() {
   const df_event_query = async (event) => {
     const res = await axios.post('http://localhost:5001/api/df_event_query', {
       event,
+      userID: cookies.get('userID'),
     });
 
     const newData = [];
