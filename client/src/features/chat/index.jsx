@@ -4,6 +4,7 @@ import Cookies from 'universal-cookie';
 import { v4 as uuid } from 'uuid';
 
 import Message from '../../components/elements/chatbot/Message';
+import Card from '../../components/elements/chatbot/Card';
 
 const cookies = new Cookies();
 
@@ -83,16 +84,46 @@ function Chat() {
     setMessages([...messages, ...newData]);
   };
 
+  const renderCards = (cards) => {
+    console.log(cards);
+    return cards.map((card, i) => <Card key={i} payload={card.structValue} />);
+  };
+
+  const renderOneMessage = (message, i) => {
+    if (message.msg && message.msg.text && message.msg.text.text) {
+      return (
+        <Message key={i} speaks={message.speaks} text={message.msg.text.text} />
+      );
+    } else if (
+      message.msg &&
+      message.msg.payload &&
+      message.msg.payload.fields &&
+      message.msg.payload.fields.cards
+    ) {
+      console.log('hit card');
+      return (
+        <div key={i}>
+          <div>
+            <div style={{ overflow: 'hidden' }}>
+              <div className=''>
+                <a>{message.speaks}</a>
+              </div>
+              {/* <div style={{ overflow: 'auto', overflowY: 'scroll' }}> */}
+              <div className='flex overflow-x-auto'>
+                {renderCards(message.msg.payload.fields.cards.listValue.values)}
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+  };
+
   const renderMessages = () => {
     if (messages) {
       return messages.map((message, i) => {
-        return (
-          <Message
-            key={i}
-            speaks={message.speaks}
-            text={message.msg.text.text}
-          />
-        );
+        //
+        return renderOneMessage(message, i);
       });
     } else {
       return null;
